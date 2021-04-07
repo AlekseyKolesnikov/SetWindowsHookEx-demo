@@ -1,4 +1,4 @@
-﻿library ThunderTrayHook;
+﻿library DemoHook;
 
 uses
   windows, messages, SysUtils, Classes;
