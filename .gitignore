@@ -1,0 +1,14 @@
+/__history
+/__recovery
+/*.~dsk
+/*.dcu
+/*.dsk
+/*.exe
+/*.identcache
+/*.local
+/*.mes
+/*.rsm
+/*.skincfg
+/*.stat
+/Win64
+/Win32

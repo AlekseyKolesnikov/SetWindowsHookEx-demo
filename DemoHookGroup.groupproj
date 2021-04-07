@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{DB37FAD0-A59E-4F08-8D20-E3CFEC282796}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DemoHookForm.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DemoHook.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DemoHookForm">
+        <MSBuild Projects="DemoHookForm.dproj"/>
+    </Target>
+    <Target Name="DemoHookForm:Clean">
+        <MSBuild Projects="DemoHookForm.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DemoHookForm:Make">
+        <MSBuild Projects="DemoHookForm.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DemoHook">
+        <MSBuild Projects="DemoHook.dproj"/>
+    </Target>
+    <Target Name="DemoHook:Clean">
+        <MSBuild Projects="DemoHook.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DemoHook:Make">
+        <MSBuild Projects="DemoHook.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DemoHookForm;DemoHook"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DemoHookForm:Clean;DemoHook:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DemoHookForm:Make;DemoHook:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
